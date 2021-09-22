@@ -24,7 +24,7 @@
 
 ## Overview
 
-![screenshot]('/live-picture.png')
+![screenshot](https://raw.githubusercontent.com/JealousGx/responsive-sites/404-page/live-picture.png)
 
 ### Built With
 
