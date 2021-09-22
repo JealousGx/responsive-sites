@@ -42,4 +42,4 @@ This application/site was created as a submission to a [DevChallenges](https://d
 ## Contact
 
 - GitHub [@JealousGx](https://github.com/JealousGx)
-- Twitter [@your-twitter](https://twitter.com/JealousGx)
+- Twitter [@JealousGx](https://twitter.com/JealousGx)
