@@ -1,12 +1,12 @@
-<h1 align="center">404 Page Not Found</h1>
+<h1 align="center">Vehicle Shop Landing Page</h1>
 
 <div align="center">
   <h3>
-    <a href="https://jealous-error.netlify.app/">
+    <a href="https://jealous-otto-page.netlify.app/">
       Demo
     </a>
     <span> | </span>
-    <a href="https://devchallenges.io/solutions/sPgw9byYjU5qPGhqlACm">
+    <a href="https://github.com/JealousGx/responsive-sites/tree/otto-landing-page">
       Code
     </a>
   </h3>
