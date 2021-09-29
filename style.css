@@ -1,0 +1,702 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap");
+
+:root {
+  --yellowColor: #f9d806;
+  --lightYellow: #ffee80;
+  --blackColor: #130f40;
+  --lightBlack: #666;
+  --border: 0.1rem solid rgba(0, 0, 0, 0.1);
+  --boxShadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
+  outline: none;
+  text-decoration: none;
+  border: none;
+  text-transform: none;
+}
+
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+  scroll-padding-top: 7rem;
+  scroll-behavior: smooth;
+}
+
+section {
+  padding: 2rem 9%;
+}
+
+.heading {
+  text-align: center;
+  padding-bottom: 2rem;
+  font-size: 4.5rem;
+  color: var(--blackColor);
+  text-transform: uppercase;
+}
+
+.heading span {
+  position: relative;
+  z-index: 0;
+  text-transform: uppercase;
+}
+
+.heading span::before {
+  content: "";
+  position: absolute;
+  bottom: 1rem;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: var(--yellowColor);
+  z-index: -1;
+  clip-path: polygon(0 90%, 100% 80%, 100% 100%, 0% 100%);
+}
+
+.btn {
+  padding: 0.8rem 3rem;
+  display: inline-block;
+  margin-top: 1rem;
+  border-radius: 0.5rem;
+  background: var(--lightYellow);
+  color: var(--blackColor);
+  font-weight: 500;
+  font-size: 1.7rem;
+  cursor: pointer;
+  text-transform: capitalize;
+}
+
+.btn:hover {
+  background: var(--yellowColor);
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  background: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3rem 9%;
+}
+
+.header .logo {
+  font-size: 2.5rem;
+  color: var(--blackColor);
+  font-weight: bolder;
+}
+
+.header .logo span:last-child {
+  color: var(--lightBlack);
+}
+
+.header .navbar a {
+  font-size: 1.7rem;
+  margin: 0 1rem;
+  color: var(--blackColor);
+  text-transform: capitalize;
+}
+
+.header .navbar a:hover {
+  color: var(--yellowColor);
+}
+
+.header .btn {
+  margin-top: 0;
+}
+
+.header #login-btn i {
+  font-size: 2.5rem;
+  color: var(--lightBlack);
+  cursor: pointer;
+  display: none;
+}
+
+#menu-btn {
+  font-size: 2.5rem;
+  color: var(--lightBlack);
+  cursor: pointer;
+  display: none;
+}
+
+.header.active {
+  box-shadow: var(--boxShadow);
+  padding-right: 2rem 0%;
+}
+
+@media screen and (max-width: 968px) {
+  html {
+    font-size: 55%;
+  }
+
+  section {
+    padding: 2rem;
+  }
+
+  .heading {
+    font-size: 2.5rem;
+  }
+
+  .header {
+    padding: 2rem;
+  }
+
+  .header #login-btn i {
+    display: block;
+  }
+
+  .header #login-btn .btn {
+    display: none;
+  }
+
+  .header .navbar {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #fff;
+    border-top: var(--border);
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    transition: clip-path 150ms ease;
+  }
+
+  .header .navbar.active {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+
+  .header .navbar a {
+    display: block;
+    margin: 2rem;
+    font-size: 2rem;
+  }
+
+  #menu-btn {
+    display: block;
+    transition: transform 350ms ease;
+  }
+
+  #menu-btn.fa-times {
+    transform: rotate(180deg);
+  }
+
+  .header.active {
+    padding: 2rem;
+  }
+}
+
+.loginContainer {
+  position: fixed;
+  top: 0;
+  left: -10000%;
+  height: 100%;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.9);
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  /* transition: left 350ms ease, opacity 150ms ease; */
+  transition: all 350ms ease;
+}
+
+.loginContainer.active {
+  inset: 0;
+  opacity: 1;
+}
+
+.loginContainer form {
+  padding: 2rem;
+  margin: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: var(--boxShadow);
+  background: #fff;
+  border: var(--border);
+  text-align: center;
+  width: 50rem;
+}
+
+.loginContainer form .buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.loginContainer form .buttons .btn {
+  display: block;
+  width: 100%;
+  margin: 0.5rem 0;
+  text-transform: uppercase;
+}
+
+.loginContainer form .btn {
+  display: block;
+  width: 100%;
+  margin: 0.5rem 0;
+  text-transform: uppercase;
+}
+
+.loginContainer form h3 {
+  color: var(--blackColor);
+  font-size: 2.5rem;
+  padding-bottom: 0.5rem;
+  text-transform: uppercase;
+}
+
+.loginContainer form .box {
+  margin: 0.7rem 0;
+  width: 100%;
+  text-transform: none;
+  color: var(--blackColor);
+  font-size: 1.6rem;
+  padding: 1rem 1.2rem;
+  border: var(--border);
+  border-radius: 0.5rem;
+}
+
+.loginContainer form .box::placeholder {
+  text-transform: uppercase;
+}
+
+.loginContainer form p {
+  padding: 1rem 0;
+  font-size: 1.5rem;
+  color: var(--lightBlack);
+  text-transform: capitalize;
+}
+
+.loginContainer form p a {
+  color: var(--yellowColor);
+  text-decoration: underline;
+}
+
+.loginContainer #closeLogin {
+  position: absolute;
+  top: 2.5rem;
+  right: 2rem;
+  font-size: 3rem;
+  color: var(--blackColor);
+  cursor: pointer;
+}
+
+.home {
+  padding-top: 10rem;
+  text-align: center;
+  overflow-x: hidden;
+}
+
+.home h1 {
+  font-size: 7.5vw;
+  text-transform: uppercase;
+  color: var(--blackColor);
+}
+
+.home img {
+  width: 100%;
+  margin: 1rem 0;
+}
+
+.iconsContainer {
+  padding: 5rem auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  gap: 1.5em;
+  background: #eee;
+}
+
+.iconsContainer .icons {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 2rem;
+  background: #fff;
+  box-shadow: var(--boxShadow);
+  border-radius: 0.5rem;
+  transition: all 150ms ease;
+}
+
+.iconsContainer .icons i {
+  height: 6rem;
+  width: 6rem;
+  line-height: 6rem;
+  font-size: 2.5rem;
+  border-radius: 50%;
+  background: #eee;
+  color: var(--blackColor);
+  text-align: center;
+}
+
+.iconsContainer .icons .content h3 {
+  color: var(--yellowColor);
+  font-size: 2.5rem;
+}
+
+.iconsContainer .icons .content p {
+  color: var(--lightBlack);
+  font-size: 1.5rem;
+  text-transform: capitalize;
+}
+
+.iconsContainer .icons:hover {
+  background: var(--blackColor);
+}
+
+.iconsContainer .icons:hover i {
+  background: var(--yellowColor);
+}
+
+.iconsContainer .icons:hover .content h3 {
+  color: #fff;
+}
+
+.iconsContainer .icons:hover .content p {
+  color: #eee;
+}
+
+.vehicles .vehicleSlider {
+  padding-bottom: 5rem;
+}
+
+.vehicles .vehicleSlider .box {
+  text-align: center;
+}
+
+.vehicles .vehicleSlider .box img {
+  width: 100%;
+  opacity: 0.5;
+  transform: scale(0.8);
+  transition: all 350ms ease;
+}
+
+.vehicles .vehicleSlider .box .content {
+  transform: scale(0);
+  padding-top: 1rem;
+  transition: all 350ms ease;
+}
+
+.vehicles .vehicleSlider .swiper-slide-active img,
+.vehicles .vehicleSlider .swiper-slide-active .content {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.vehicles .vehicleSlider .box .content h3 {
+  font-size: 2.5rem;
+  color: var(--blackColor);
+  text-transform: capitalize;
+}
+
+.vehicles .vehicleSlider .box .content .price {
+  font-size: 2.5rem;
+  color: var(--yellowColor);
+  padding: 1rem 0;
+}
+
+.vehicles .vehicleSlider .box .content .price span {
+  font-size: 1.7rem;
+  color: var(--lightBlack);
+  font-weight: normal;
+  text-transform: capitalize;
+}
+
+.vehicles .vehicleSlider .box .content p {
+  font-size: 1.6rem;
+  padding: 1rem;
+  padding-top: 1.5rem;
+  border-top: var(--border);
+  color: var(--lightBlack);
+  text-transform: capitalize;
+}
+
+.vehicles .vehicleSlider .box .content p span {
+  color: var(--yellowColor);
+  font-size: 0.8rem;
+  padding: 0 0.5rem;
+}
+
+.swiper-pagination-bullet-active {
+  background: var(--yellowColor) !important;
+}
+
+.services .boxContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  gap: 1.5rem;
+}
+
+.services .boxContainer .box {
+  text-align: center;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: var(--boxShadow);
+  border: var(--border);
+  transition: all 150ms ease;
+}
+
+.services .boxContainer .box i {
+  height: 6rem;
+  width: 6rem;
+  line-height: 6rem;
+  font-size: 2.5rem;
+  color: var(--blackColor);
+  background: var(--yellowColor);
+  border-radius: 50%;
+  margin-bottom: 1rem;
+}
+
+.services .boxContainer .box h3 {
+  color: var(--blackColor);
+  font-size: 2.2rem;
+}
+
+.services .boxContainer .box p {
+  color: var(--lightBlack);
+  font-size: 1.4rem;
+  padding: 1rem 0;
+  line-height: 1.8;
+}
+
+.services .boxContainer .box:hover {
+  background: var(--blackColor);
+}
+
+.services .boxContainer .box:hover h3 {
+  color: #fff;
+}
+
+.services .boxContainer .box:hover p {
+  color: #eee;
+}
+
+.featured .featuredSlider {
+  padding: 1rem;
+  padding-bottom: 4rem;
+}
+
+.featured .featuredSlider .box {
+  text-align: center;
+  padding: 2rem;
+  box-shadow: var(--boxShadow);
+  border: var(--border);
+  border-radius: 0.5rem;
+  transition: all 150ms ease;
+}
+
+.featured .featuredSlider .box img {
+  height: 15rem;
+  transition: all 150ms ease;
+}
+
+.featured .featuredSlider .box:hover img {
+  transform: scale(0.9);
+}
+
+.featured .featuredSlider .box h3 {
+  font-size: 2.2rem;
+  color: var(--blackColor);
+  text-transform: uppercase;
+}
+
+.featured .featuredSlider .box .stars {
+  padding: 1rem 0;
+}
+.featured .featuredSlider .box .stars i {
+  font-size: 1.7rem;
+  color: var(--yellowColor);
+}
+
+.featured .featuredSlider .box .price {
+  font-size: 2.5rem;
+  color: var(--blackColor);
+}
+
+.newsletter {
+  padding: 6rem 2rem;
+  text-align: center;
+  background: url("/images/letter-bg.png") no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.newsletter h3 {
+  color: var(--blackColor);
+  font-size: 3rem;
+  text-transform: uppercase;
+}
+
+.newsletter p {
+  color: var(--lightBlack);
+  font-size: 1.5rem;
+}
+
+.newsletter form {
+  margin: 1rem auto;
+  max-width: 60rem;
+  height: 5rem;
+  display: flex;
+  box-shadow: var(--boxShadow);
+  overflow: hidden;
+  border-radius: 5rem;
+}
+
+.newsletter form input[type="email"] {
+  height: 100%;
+  width: 100%;
+  font-size: 1.6rem;
+  text-transform: none;
+  color: var(--blackColor);
+  padding: 0 2rem;
+}
+
+.newsletter form input[type="submit"] {
+  height: 100%;
+  width: 17rem;
+  font-size: 1.7rem;
+  color: var(--blackColor);
+  background: var(--lightYellow);
+  cursor: pointer;
+}
+
+.newsletter form input[type="submit"]:hover {
+  background: var(--yellowColor);
+}
+
+.reviews .reviewSlider {
+  padding-bottom: 3rem;
+}
+
+.reviews .reviewSlider .box {
+  padding: 2rem;
+  margin: 2rem 0;
+  text-align: center;
+  opacity: 0.4;
+  transform: scale(0.9);
+}
+
+.reviews .reviewSlider .box img {
+  height: 7rem;
+  width: 7rem;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+}
+
+.reviews .reviewSlider .box .content p {
+  font-size: 1.4rem;
+  color: var(--lightBlack);
+  padding: 1rem 0;
+}
+
+.reviews .reviewSlider .box .content h3 {
+  font-size: 2.2rem;
+  color: var(--blackColor);
+}
+
+.reviews .reviewSlider .box .content .stars i {
+  font-size: 1.7rem;
+  color: var(--yellowColor);
+}
+
+.reviews .reviewSlider .swiper-slide-active {
+  opacity: 1;
+  transform: scale(1);
+  box-shadow: var(--boxShadow);
+  border: var(--border);
+}
+
+.contact .row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.contact .row .map {
+  flex: 1 1 42rem;
+  width: 100%;
+  padding: 2rem;
+  border: var(--border);
+  border-radius: 0.5rem;
+  box-shadow: var(--boxShadow);
+}
+
+.contact .row form {
+  flex: 1 1 42rem;
+  padding: 2rem;
+  border: var(--border);
+  border-radius: 0.5rem;
+  box-shadow: var(--boxShadow);
+  text-align: center;
+}
+
+.contact .row form h3 {
+  font-size: 3rem;
+  text-transform: capitalize;
+  color: var(--blackColor);
+}
+
+.contact .row form .box {
+  margin: 0.7rem 0;
+  width: 100%;
+  border: var(--border);
+  padding: 1rem;
+  font-size: 1.6rem;
+  color: var(--blackColor);
+  text-transform: none;
+  border-radius: 0.5rem;
+}
+
+.contact .row form textarea {
+  height: 15rem;
+  resize: none;
+}
+
+.footer {
+  background: var(--lightYellow);
+}
+
+.footer .boxContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  gap: 1.5rem;
+}
+
+.footer .boxContainer .box h3 {
+  color: var(--blackColor);
+  font-size: 2.2rem;
+  padding: 1rem 0;
+}
+
+.footer .boxContainer .box a {
+  color: var(--blackColor);
+  font-size: 1.4rem;
+  display: block;
+  padding: 1rem 0;
+  text-transform: capitalize;
+}
+
+.footer .boxContainer .box a i {
+  padding-right: 0.5rem;
+  color: var(--blackColor);
+  transition: all 350ms ease;
+}
+
+.footer .boxContainer .box a:hover i {
+  padding-right: 2rem;
+}
+
+.footer .credit {
+  text-align: center;
+  border-top: var(--border);
+  padding: 1rem;
+  padding-top: 2.5rem;
+  margin-top: 2rem;
+  font-size: 1.5rem;
+  text-transform: capitalize;
+}
